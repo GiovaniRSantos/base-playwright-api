@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { getResource } from '../src/helpers'
-import {validateProduct} from '../src/productCommand'
+import {validateProduct} from '../src/services/productService'
 
 test.describe('Produtos',() => {
   test('get all products', async () => {
