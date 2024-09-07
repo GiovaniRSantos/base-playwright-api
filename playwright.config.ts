@@ -1,6 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
 const config = defineConfig({
+  reporter: [['allure-playwright']],
   projects: [
     {
       name: 'web',
