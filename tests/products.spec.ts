@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { getResource } from '../src/helpers'
+import {validateProduct} from '../src/productCommand'
 
 test.describe('Produtos',() => {
   test('get all products', async () => {
@@ -7,16 +8,9 @@ test.describe('Produtos',() => {
     expect(products).toBeDefined()
     expect(Array.isArray(products)).toBe(true)
   
+    
     products.forEach((item: Product) => {
-      expect(item).toHaveProperty('id')
-      expect(item).toHaveProperty('title')
-      expect(item).toHaveProperty('price')
-      expect(item).toHaveProperty('description')
-      expect(item).toHaveProperty('category')
-      expect(item).toHaveProperty('image')
-      expect(item).toHaveProperty('rating')
-      expect(item.rating).toHaveProperty('rate')
-      expect(item.rating).toHaveProperty('count')
+      validateProduct(item)
     })
   })
   
@@ -26,15 +20,7 @@ test.describe('Produtos',() => {
     expect(Array.isArray(products)).toBe(true)
   
     products.forEach((item: Product) => {
-      expect(item).toHaveProperty('id')
-      expect(item).toHaveProperty('title')
-      expect(item).toHaveProperty('price')
-      expect(item).toHaveProperty('description')
-      expect(item).toHaveProperty('category')
-      expect(item).toHaveProperty('image')
-      expect(item).toHaveProperty('rating')
-      expect(item.rating).toHaveProperty('rate')
-      expect(item.rating).toHaveProperty('count')
+      validateProduct(item)
     })
   })
 })
